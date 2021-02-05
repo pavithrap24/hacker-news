@@ -12,18 +12,17 @@ function User(props) {
 
   const userUrl = `https://hacker-news.firebaseio.com/v0/user/${id}.json`;
 
-  const getUser = async () => {
-    const story = await axios
-      .get(userUrl)
-      .then((res) => res.data)
-      .then((data) => setUser(data));
-
-    return story;
-  };
-
   useEffect(() => {
+    const getUser = async () => {
+      const story = await axios
+        .get(userUrl)
+        .then((res) => res.data)
+        .then((data) => setUser(data));
+
+      return story;
+    };
     getUser();
-  }, []);
+  }, [userUrl]);
 
   console.log("user props ", props);
   return (

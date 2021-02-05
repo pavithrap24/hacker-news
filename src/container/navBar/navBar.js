@@ -1,21 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Anchor from "../../components/Anchor";
 
 import "./navBar.css";
 
 function NavBar() {
   return (
     <div>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        Hacker News{" "}
-      </Link>
-      <Link to="/news"> new </Link>
-      <Link to="/past"> past </Link>
-      <Link to="/comments"> comments </Link>
-      <Link to="/ask"> ask </Link>
-      <Link to="/show"> show </Link>
-      <Link to="/jobs"> jobs </Link>
-      <Link to="/submit"> submit </Link>
+      <Anchor to="/">Hacker News </Anchor>
+      <Anchor to="/news"> new </Anchor>
+      <Anchor to="/past"> past </Anchor>
+      <Anchor to="/comments"> comments </Anchor>
+      <Anchor to="/ask"> ask </Anchor>
+      <Anchor to="/show"> show </Anchor>
+      <Anchor to="/jobs"> jobs </Anchor>
+      <Anchor to="/submit"> submit </Anchor>
     </div>
   );
 }

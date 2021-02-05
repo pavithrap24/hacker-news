@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TopStory from "./topStory";
+import NewStory from "./newStory";
 
 const baseUrl = "https://hacker-news.firebaseio.com/v0/";
-const topStoriesUrl = `${baseUrl}topstories.json`;
+const NewStoriesUrl = `${baseUrl}newstories.json`;
 
-function TopStories() {
+function NewStories() {
   const [storyIds, setStoryIds] = useState([]);
 
-  const getTopStories = async () => {
-    const topStoryIds = await axios
-      .get(topStoriesUrl)
+  const getNewStories = async () => {
+    const newStoryIds = await axios
+      .get(NewStoriesUrl)
       .then((res) => res.data)
       .then((data) => setStoryIds(data));
-
-    return topStoryIds;
+    return newStoryIds;
   };
 
   useEffect(() => {
-    getTopStories();
+    getNewStories();
   }, []);
 
   return (
     <div>
       {storyIds && storyIds.length > 0
         ? storyIds.map((storyId, index) => {
-            return <TopStory key={index} storyId={storyId} />;
+            return <NewStory key={index} storyId={storyId} />;
           })
         : null}
     </div>
   );
 }
 
-export default TopStories;
+export default NewStories;

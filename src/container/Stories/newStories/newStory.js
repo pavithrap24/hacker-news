@@ -7,9 +7,9 @@ import moment from "moment";
 const baseUrl = "https://hacker-news.firebaseio.com/v0/";
 const storyUrl = `${baseUrl}/item/`;
 
-function TopStory(props) {
+function NewStory(props) {
   const { storyId } = props;
-  const [story, setStory] = useState(null);
+  const [story, setStory] = useState([]);
 
   useEffect(() => {
     const getStory = async () => {
@@ -23,12 +23,12 @@ function TopStory(props) {
     getStory();
   }, [storyId]);
 
-  const { url, title, score, by, time } = story || {};
+  const { url, title, score, by, time } = story;
   const period = moment.unix(time).fromNow();
 
   return (
     <div>
-      {story && (
+      {story ? (
         <div>
           <Card variant="outlined" style={{ width: "500px" }}>
             <CardContent>
@@ -43,15 +43,16 @@ function TopStory(props) {
                   {period}
                 </Anchor>
                 {"  |  hide"}
-                {"  |  so so comments"}
+                {"  |  past"}
+                {"  |  discuss"}
               </Typography>
               <Typography></Typography>
             </CardContent>
           </Card>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
 
-export default TopStory;
+export default NewStory;
