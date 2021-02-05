@@ -23,12 +23,12 @@ function NewStory(props) {
     getStory();
   }, [storyId]);
 
-  const { url, title, score, by, time } = story;
+  const { url, title, score, by, time } = story || {};
   const period = moment.unix(time).fromNow();
 
   return (
     <div>
-      {story ? (
+      {story && (
         <div>
           <Card variant="outlined" style={{ width: "500px" }}>
             <CardContent>
@@ -50,7 +50,7 @@ function NewStory(props) {
             </CardContent>
           </Card>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

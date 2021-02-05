@@ -27,12 +27,12 @@ function PastStory(props) {
     getStory();
   }, [storyId]);
 
-  const { url, title, score, by, time } = story;
+  const { url, title, score, by, time } = story || {};
   const period = moment.unix(time).fromNow();
 
   return (
     <div>
-      {story ? (
+      {story && (
         <div>
           <Typography>Stories from {}</Typography>
           <Typography>
@@ -62,7 +62,7 @@ function PastStory(props) {
             </CardContent>
           </Card>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
