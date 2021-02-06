@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Typography } from "@material-ui/core";
+import useQueryParams from "./hook/useQueryParams/useQueryParams";
 
 function User(props) {
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const id = queryParams.get("id");
+  const params = useQueryParams();
+  console.log("params ", params);
 
   const [user, setUser] = useState([]);
 
