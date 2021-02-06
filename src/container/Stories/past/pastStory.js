@@ -13,15 +13,10 @@ function PastStory(props) {
 
   useEffect(() => {
     const getStory = async () => {
-      const storyData = await axios
+      const story = await axios
         .get(`${storyUrl + storyId}.json`)
         .then((res) => res.data)
         .then((data) => setStory(data));
-      console.log("storyData ", storyData);
-      const story = storyData.map((data) => {
-        return moment.unix(data.time).fromNow();
-      });
-      console.log("story ", story);
       return story;
     };
     getStory();
@@ -34,15 +29,6 @@ function PastStory(props) {
     <div>
       {story && (
         <div>
-          <Typography>Stories from {}</Typography>
-          <Typography>
-            {" "}
-            Go back a <Anchor to={{ pathname: `user?id=${by}` }}>
-              day
-            </Anchor>, <Anchor to={{ pathname: `user?id=${by}` }}>month</Anchor>
-            , or <Anchor to={{ pathname: `user?id=${by}` }}>year</Anchor>. Go
-            forward a<Anchor to={{ pathname: `user?id=${by}` }}>day</Anchor>.
-          </Typography>
           <Card variant="outlined" style={{ width: "500px" }}>
             <CardContent>
               <a href={url}>

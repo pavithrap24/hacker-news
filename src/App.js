@@ -4,6 +4,7 @@ import NavBar from "./container/navBar/navBar";
 import TopStories from "./container/Stories/topStories/topStories";
 import NewStories from "./container/Stories/newStories/newStories";
 import PastStories from "./container/Stories/past/pastStories";
+import AskStories from "./container/ask/askStories";
 import User from "./container/Stories/user/user";
 
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/topStories" component={TopStories} />
           <Route path="/news" component={NewStories} />
           <Route path="/past" component={PastStories} />
+          <Route path="/ask" component={AskStories} />
           <Route path="/user" component={User} />
         </Switch>
       </Router>
