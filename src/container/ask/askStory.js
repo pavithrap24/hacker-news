@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Anchor from "../../components/Anchor";
-import { Grid, Paper, Typography, Divider } from "@material-ui/core";
+import { Grid, Paper, Typography } from "@material-ui/core";
 import moment from "moment";
 
 const baseUrl = "https://hacker-news.firebaseio.com/v0/";
